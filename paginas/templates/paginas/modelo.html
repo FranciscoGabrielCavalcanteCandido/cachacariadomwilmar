@@ -6,18 +6,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    {% block titulo %}
-    <title>Modelo</title>
-    {% endblock %}
+    <title>
+        {% block title %}
+        Cachaçaria
+        {% endblock %}
+    </title>
 
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 </head>
 <body>
     {% block menu %}
-    <div class="bg-light">
-        Código do meu menu
-    </div>
-    {% endblock %}
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Cachaçaria Dom Wilmar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#"><i
+                                    class="bi bi-house"></i>Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#"><i
+                                    class="bi bi-house"></i>Sobre</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Listagem
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Marca</a></li>
+                                <li><a class="dropdown-item" href="#">Cachaça</a>
+                                    <li><a class="dropdown-item" href="#">Cidade</a>
+                                    <li><a class="dropdown-item" href="#">Estado</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Cadastros
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Marca</a></li>
+                                <li><a class="dropdown-item" href="#">Cachaça</a>
+                                <li><a class="dropdown-item" href="#">Cidade</a>
+                                <li><a class="dropdown-item" href="#">Estado</a>
+
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                           
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
     {% block destaque %}
     <div class="bg-secondary">
@@ -37,6 +87,8 @@
         Rodapé
     </div>   
     {% endblock %} 
+
+    {% endblock %}
 
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>
