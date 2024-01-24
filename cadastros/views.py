@@ -1,3 +1,29 @@
-from django.shortcuts import render
+from django.views.generic.edit import CreateView
 
-# Create your views here.
+from .models import Tipo, Cidade, Uf, Cachaca
+
+from django.urls import reverse_lazy
+
+class TipoCreate(CreateView):
+    model = Tipo
+    fields = ["nome"]
+    template_name = "cadastros/form-cadastro.html"
+    success_url = reverse_lazy("inicio")
+
+class CidadeCreate(CreateView):
+    model = Cidade
+    fields = ["nome"]
+    template_name = "cadastros/form-cadastro.html"
+    success_url = reverse_lazy("inicio")
+
+class UfCreate(CreateView):
+    model = Uf
+    fields = ["nome"]
+    template_name = "cadastros/form-cadastro.html"
+    success_url = reverse_lazy("inicio")
+
+class CachacaCreate(CreateView):
+    model = Cachaca
+    fields = ["nome", "tipo", "marca", "ano", "cidade", "uf", "teor", "observacoes"]
+    template_name = "cadastros/form-cadastro.html"
+    success_url = reverse_lazy("inicio")
