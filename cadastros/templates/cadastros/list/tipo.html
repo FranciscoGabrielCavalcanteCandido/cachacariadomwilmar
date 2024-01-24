@@ -1,0 +1,61 @@
+{% extends 'paginas/modelo.html' %}
+
+{% load static %}
+
+{% block conteudo %}
+<div class="row justify-content-center align-items-center mt-3">
+    <div class="col-md-8">
+        <h3 class="">Lista de Tipos de Bebidas</h3>
+    </div>
+    <div class="col-md" style="padding-left: 255px;">
+        <a href="{% url 'cadastrar-tipo' %}" class="btn btn-primary btn-sm">
+            <i class="fa fa-plus-square" aria-hidden="true"></i>
+            Cadastrar Tipo
+        </a>
+    </div>
+</div>
+
+<hr>
+
+<div class="table-responsive-lg">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Data de Cadastro</th>
+                <th>Data de Atualização</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for obj in object_list %}
+            <tr>
+                <td>{{ obj.id }}</td>
+                <td>{{ obj.nome }}</td>
+                <td>{{ obj.cadastrado_em }}</td>
+                <td>{{ obj.atualizado_em }}</td>
+                <td>
+                    <div class="dropdown">
+                        <a class="btn btn-sm btn-outline-secondary dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-cog" aria-hidden="true"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item text-primary" href="{% url 'editar-tipo' obj.pk %}">
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a></li>
+                            <li><a class="dropdown-item text-danger" href="{% url 'excluir-tipo' obj.pk %}">
+                                    <i class="fa fa-trash" aria-hidden="true"></i> Excluir</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <th colspan="100%">Nenhum registro encontrado.</th>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
