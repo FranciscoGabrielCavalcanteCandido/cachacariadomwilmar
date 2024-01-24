@@ -25,6 +25,30 @@
     
 </head>
 
+<style>
+    .image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        margin-top: 25px;
+    }
+
+    .image-container img {
+        max-width: 40%;
+        height: auto;
+    }
+
+    .image-container img:nth-child(1) {
+        width: 35%;
+    }
+
+    .image-container img:nth-child(3) {
+        width: 35%;
+    }
+</style>
+
+
 <body class="d-flex flex-column h-100">
 
     {% block menu %}
@@ -107,9 +131,13 @@
         <div class="container">
             {% block conteudo %}
 
-            <h1 class="mt-5">Título da Página</h1>
+            <h1 class="mt-5"><marquee>Projeto Cachaçaria Dom Wilmar Santin</marquee></h1>
 
-            <p class="lead"><p>Exemplo de texto.</p>
+            <div class="image-container">
+                <img src="{% static 'img/cachaca1.jpeg' %}" alt="Cachaça Sabor de Minas">
+                <img src="{% static 'img/cachaca2.jpeg' %}" alt="Cachaça Canarinha">
+                <img src="{% static 'img/cachaca3.jpeg' %}" alt="Cachaça Havaninha">
+            </div>
 
             {% endblock %}
         </div>
@@ -117,7 +145,7 @@
 
     <!-- Conteúdo do Rodapé -->
 
-    <footer class="footer mt-auto py-3 bg-light">
+    <footer class="footer mt-auto py-2 bg-light">
         <div class="container">
             {% block rodape %}
 
@@ -128,8 +156,6 @@
             {% endblock %}
         </div>
     </footer>
-
-
 
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>
