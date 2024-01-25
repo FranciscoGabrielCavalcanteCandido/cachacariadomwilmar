@@ -61,11 +61,22 @@
         left: 50%;
         transform: translateX(-50%);
     }
+        .footer {
+        position: sticky;
+        bottom: 0;
+        width: 100%;
+        background-color: #f8f9fa;
+        padding: 10px;
+        z-index: 100;
+    }
+    .ajuste-de-rodape {
+        min-height: 100vh; 
+    }
 </style>
 
 <link rel="shortcut icon" type="image/png" href="{% static 'img/logocachacaria.png' %}">
 
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column h-100 ajuste-de-rodape">
 
     {% block menu %}
     <header>

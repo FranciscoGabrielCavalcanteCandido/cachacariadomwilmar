@@ -35,7 +35,11 @@
             {% for obj in object_list %}
             <tr>
                 <td>{{ obj.id }}</td>
-                <td>{{ obj.imagem }}</td>
+                {% if obj.imagem %}
+                    <td><img src="{{ obj.imagem.url }}" alt="{{ obj.nome }}" width="100"></td>
+                {% else %}
+                    <td><img src="{% static 'img\logocachacaria.png' %}" alt="Imagem Padrão" width="100"></td>
+                {% endif %}
                 <td>{{ obj.nome }}</td>
                 <td>{{ obj.tipo }}</td>
                 <td>{{ obj.marca }}</td>
