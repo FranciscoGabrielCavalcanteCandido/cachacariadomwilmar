@@ -30,7 +30,7 @@ class UfCreate(LoginRequiredMixin, CreateView):
 
 class CachacaCreate(LoginRequiredMixin, CreateView):
     model = Cachaca
-    fields = ["nome", "tipo", "marca", "ano", "cidade", "teor", "observacoes"]
+    fields = ["nome", "tipo", "marca", "ano", "cidade", "teor", "observacoes", "imagem"]
     extra_context = {"titulo": "Cadastro de Bebida"}
     template_name = "cadastros/form-cadastro.html"
     success_url = reverse_lazy("listar-cachaca")
@@ -60,7 +60,7 @@ class UfUpdate(LoginRequiredMixin, UpdateView):
 
 class CachacaUpdate(LoginRequiredMixin, UpdateView):
     model = Cachaca
-    fields = ["nome", "tipo", "marca", "ano", "cidade", "teor", "observacoes"]
+    fields = ["nome", "tipo", "marca", "ano", "cidade", "teor", "observacoes", "imagem"]
     template_name = "cadastros/form-cadastro.html"
     extra_context = {"titulo": "Editar Bebidas / Cachaças"}
     success_url = reverse_lazy("listar-cachaca")

@@ -38,6 +38,7 @@ class Cachaca(models.Model):
     cidade = models.ForeignKey(Cidade, on_delete=models.PROTECT, help_text="Selecione a cidade de origem")
     teor = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(99)], verbose_name="Teor Alcoólico")
     observacoes = models.CharField(max_length=255, verbose_name="Observações")
+    imagem = models.ImageField(upload_to='imagens/', blank=True, null=True, verbose_name="Imagem")
 
     cadastrado_em = models.DateTimeField(auto_now_add=True)
     atualizado_em = models.DateTimeField(auto_now=True)

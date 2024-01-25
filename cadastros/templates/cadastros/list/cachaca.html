@@ -22,6 +22,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Imagem</th>
                 <th>Nome</th>
                 <th>Tipo</th>
                 <th>Marca</th>
@@ -34,6 +35,7 @@
             {% for obj in object_list %}
             <tr>
                 <td>{{ obj.id }}</td>
+                <td>{{ obj.imagem }}</td>
                 <td>{{ obj.nome }}</td>
                 <td>{{ obj.tipo }}</td>
                 <td>{{ obj.marca }}</td>

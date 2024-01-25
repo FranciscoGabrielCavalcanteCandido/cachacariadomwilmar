@@ -7,10 +7,10 @@
 {% block conteudo %}
 
 <h3 class="mt-3 border-bottom mb-4 pb-2">
-    {{ titulo|default:"Formulário de cadastro e edição" }}
+    {{ titulo|default:"Formulário de cadastro" }}
 </h3>
 
-<form action="" method="post">
+<form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
 
     {{form|crispy}}
