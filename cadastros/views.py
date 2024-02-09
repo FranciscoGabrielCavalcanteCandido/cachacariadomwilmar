@@ -6,6 +6,7 @@ from .models import Tipo, Cidade, Uf, Cachaca
 
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
 
 class TipoCreate(LoginRequiredMixin, CreateView):
     model = Tipo
@@ -92,18 +93,62 @@ class CachacaDelete(LoginRequiredMixin, DeleteView):
 class TipoList(LoginRequiredMixin, ListView):
     model = Tipo
     template_name = "cadastros/list/tipo.html"
+    paginate_by = 10
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        q = self.request.GET.get('q')
+        if q:
+            queryset = queryset.filter(Q(nome__icontains=q))
+        return queryset
 
 class CidadeList(LoginRequiredMixin, ListView):
     model = Cidade
     template_name = "cadastros/list/cidade.html"
+    paginate_by = 10
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        q = self.request.GET.get('q')
+        if q:
+            queryset = queryset.filter(
+                Q(nome__icontains=q) |
+                Q(cadastrado_em__icontains=q) |
+                Q(atualizado_em__icontains=q)
+            )
+        return queryset
 
 class UfList(LoginRequiredMixin, ListView):
     model = Uf
     template_name = "cadastros/list/uf.html"
+    paginate_by = 10
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        q = self.request.GET.get('q')
+        if q:
+            queryset = queryset.filter(
+                Q(nome__icontains=q) |
+                Q(cadastrado_em__icontains=q) |
+                Q(atualizado_em__icontains=q)
+            )
+        return queryset
 
 class CachacaList(LoginRequiredMixin, ListView):
     model = Cachaca
     template_name = "cadastros/list/cachaca.html"
+    paginate_by = 10
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        q = self.request.GET.get('q')
+        if q:
+            queryset = queryset.filter(
+                Q(nome__icontains=q) |
+                Q(cadastrado_em__icontains=q) |
+                Q(atualizado_em__icontains=q)
+            )
+        return queryset
 
 #========================================================================================#
     
