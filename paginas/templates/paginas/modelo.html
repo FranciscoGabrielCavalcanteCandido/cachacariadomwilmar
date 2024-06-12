@@ -30,8 +30,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 30px;
+        gap: 25px;
         margin-top: 25px;
+        margin-left: 25px;
+        /*margin-right: 30px;*/
+        margin-bottom: 30px;
     }
 
     .image-container img {
@@ -40,11 +43,11 @@
     }
 
     .image-container img:nth-child(1) {
-        width: 35%;
+        width: 30%;
     }
 
     .image-container img:nth-child(3) {
-        width: 35%;
+        width: 30%;
     }
 
     .botao-img {
@@ -98,14 +101,14 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="{% url 'inicio' %}"><i class="fa fa-home" aria-hidden="true"></i></i></i> Home</a>
+                            <a class="nav-link" aria-current="page" href="{% url 'inicio' %}" style="color: #f8f9fa;"><i class="fa fa-home" aria-hidden="true"></i></i></i> Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'sobre' %}"><i class="fa fa-flag" aria-hidden="true"></i> Sobre</a>
+                            <a class="nav-link" href="{% url 'sobre' %}" style="color: #f8f9fa;"><i class="fa fa-flag" aria-hidden="true"></i> Sobre</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false"><i class="fa fa-list" aria-hidden="true"></i>
+                                aria-expanded="false" style="color: #f8f9fa;"><i class="fa fa-list" aria-hidden="true"></i>
                                 Listagem
                             </a>
                             <ul class="dropdown-menu">
@@ -118,7 +121,7 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false"><i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                aria-expanded="false" style="color: #f8f9fa;"><i class="fa fa-plus-circle" aria-hidden="true"></i>
                                 Cadastros
                             </a>
                             <ul class="dropdown-menu">
@@ -145,21 +148,52 @@
 
     <!-- Conteúdo da página -->
 
+    <style>
+        .image-container img {
+            border-radius: 50px; 
+        }
+    </style>
+    
     <main class="flex-shrink-0">
         <div class="container">
             {% block conteudo %}
-
-            <h1 class="mt-5"><marquee>Projeto Sistema de Coleção de Cachaças</marquee></h1>
-
+    
+            <h1 class="mt-5"><marquee>Coleção de Cachaças</marquee></h1>
+    
             <div class="image-container">
                 <img src="{% static 'img/cachaca1.jpeg' %}" alt="Cachaça Sabor de Minas">
                 <img src="{% static 'img/cachaca2.jpeg' %}" alt="Cachaça Canarinha">
                 <img src="{% static 'img/cachaca3.jpeg' %}" alt="Cachaça Havaninha">
             </div>
 
+            <div class="row">
+                <div class="col-md-6 mb-4 mx-auto">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">Cadastrar Bebida</h5>
+                            <p class="card-text">Clique aqui para cadastrar uma nova bebida.</p>
+                            <a style="background-color: #430202; border: #430202;" href="{% url 'cadastrar-cachaca' %}" class="btn btn-primary">Cadastrar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 mx-auto">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">Listar Bebidas</h5>
+                            <p class="card-text">Clique aqui para listar as bebidas.</p>
+                            <a style="background-color: #430202; border: #430202;" href="{% url 'listar-cachaca' %}" class="btn btn-primary">Listar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+              
+            
             {% endblock %}
         </div>
     </main>
+    
 
     <!-- Conteúdo do Rodapé -->
 
