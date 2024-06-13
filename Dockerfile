@@ -1,16 +1,13 @@
-FROM python:3.12.4
+FROM python
 
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+WORKDIR /app
 
-WORKDIR /code
+COPY requirements.txt /app
 
-COPY requirements.txt /code/
-RUN pip install --upgrade pip && \
-    pip install -r requirements.txt
+RUN pip install -r requirements.txt
 
-COPY . /code/   
-RUN python manage.py collectstatic --noinput
+COPY . .
 
 EXPOSE 8000
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "cachacariadomwilmar.wsgi:application"]
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
