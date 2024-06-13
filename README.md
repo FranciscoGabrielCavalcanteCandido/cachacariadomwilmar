@@ -32,3 +32,11 @@ python manage.py migrate
 pip install crispy-bootstrap5
 ```
 
+- Comandos para rodar no docker:
+
+```bash
+docker build -t cachacaria .
+```
+```bash
+docker run -d -p 8000:8000 --name django cachacaria
+```
