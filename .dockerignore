@@ -1,0 +1,48 @@
+# Ignorar arquivos e diretórios Python cache
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+
+# Ignorar ambientes virtuais
+venv
+env
+*.env
+
+# Ignorar arquivos de log
+*.log
+
+# Ignorar arquivos de banco de dados
+*.sqlite3
+
+# Ignorar arquivos de configurações locais
+.env
+.local
+
+# Ignorar diretórios de mídia e estáticos gerados
+/staticfiles
+/media
+/mediafiles
+
+# Ignorar o diretório do Node.js (se você usar npm/yarn)
+node_modules
+
+# Ignorar arquivos temporários de desenvolvimento
+*.swp
+*.swo
+*.swn
+
+# Ignorar IDEs e editores
+.vscode
+.idea
+
+# Ignorar arquivos do Docker
+Dockerfile
+.dockerignore
+
+# Ignorar arquivos de controle de versão
+.git
+.gitignore
+.hg
+.hgignore
